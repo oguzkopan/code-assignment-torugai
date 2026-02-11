@@ -23,7 +23,8 @@ def count_valid_emails(emails):
             # Check for exactly one @ and non-empty local/domain parts
             if email.count("@") == 1:
                 local, domain = email.split("@")
-                if local and domain:
+                # Ensure both parts have non-whitespace content
+                if local.strip() and domain.strip():
                     count += 1
     
     return count
